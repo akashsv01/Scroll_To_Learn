@@ -97,12 +97,31 @@ The test suite covers topic propagation, structured response parsing, topic rese
 
 ## Technology
 
-- React 19 and Vinext
+- Next.js 16 (App Router) and React 19
 - TypeScript
 - Gemini via `@google/genai`
 - Zod structured-output validation
 - Vitest
 - Browser `localStorage` for learner progress
+
+## Deploying to Vercel
+
+Import this repository in Vercel and use these settings:
+
+- Application Preset: **Next.js**
+- Root Directory: **`app`**
+- Build Command: leave the Next.js default (`npm run build`)
+- Output Directory: leave blank (Next.js default)
+- Install Command: leave the default (`npm install`)
+
+Add these environment variables in Vercel before deploying:
+
+```env
+GEMINI_API_KEY=your_key_here
+GEMINI_MODEL=gemini-3.6-flash
+```
+
+`GEMINI_API_KEY` is required. `GEMINI_MODEL` is optional and defaults to `gemini-3.6-flash`. Vercel runs the server-side `/api/generate` route, so the Gemini key remains private and is never included in the browser bundle.
 
 ## Project structure
 

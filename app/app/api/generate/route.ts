@@ -10,6 +10,9 @@ import {
   type LearningCard,
 } from '../../../lib/learning';
 
+export const runtime = 'nodejs';
+export const maxDuration = 60;
+
 type GenerateCards = (input: GenerateRequest, apiKey: string) => Promise<LearningCard[]>;
 
 export async function generateWithGemini(input: GenerateRequest, apiKey: string) {
